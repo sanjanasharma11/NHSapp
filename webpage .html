@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NhsApp</title>
+    <style>
+        body {
+            background-color: #E69137;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        form {
+            width: 300px;
+            background-color: #E06567;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: center;
+            border: 3px solid;
+            border-color: #c95a5c;
+        }
+
+        img {
+            width: 300px; 
+            height: 100px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        input {
+            width: 70%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: none;
+            background-color: white;
+        }
+
+        button {
+            width: 70%;
+            padding: 10px;
+            background-color: #c95a5c;
+            color: white;
+            border: 2px solid #c95a5c;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #results {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Container for image and form -->
+    <div id="container">
+        <!-- Image above the form -->
+        <img src="logo.png" alt="white text reading 'NHS app'">
+
+        <!-- Form to take user input -->
+        <form>
+            <input type="text" id="postcode" name="postcode" placeholder="Enter patient's postcode" required>
+            <button type="button" onclick="displayResults()">Submit</button>
+        </form>
+    </div>
+
+    <!-- Placeholder for results -->
+    <div id="results">
+        <p>Postcode: <span id="displayPostcode"></span></p>
+        <p>Nearest GP: <span id="displayGP"></span></p>
+        <p>Nearest Dentist: <span id="displayDentist"></span></p>
+        <p>Nearest Optician: <span id="displayOptician"></span></p>
+    </div>
+
+    <script>
+        // Function to display results
+        function displayResults() {
+            // Get patient's data
+            const postcode = document.getElementById("postcode").value;
+
+            // Display postcode
+            document.getElementById("displayPostcode").textContent = postcode;
+
+            // Display results (placeholders will be displayed atm)
+            document.getElementById("displayGP").textContent = "[GP Name]";
+            document.getElementById("displayDentist").textContent = "[Dentist Name]";
+            document.getElementById("displayOptician").textContent = "[Optician Name]";
+
+            // Show the results container
+            document.getElementById("results").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
